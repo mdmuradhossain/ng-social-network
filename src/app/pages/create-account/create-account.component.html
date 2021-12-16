@@ -1,7 +1,11 @@
 <div class="container">
   <div class="form-container">
-    <div class="title">Login</div>
+    <div class="title">Create Account</div>
     <form>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput type="email" />
+      </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Enter your username</mat-label>
         <input matInput />
@@ -10,12 +14,13 @@
         <mat-label>Enter your password</mat-label>
         <input matInput type="password" />
       </mat-form-field>
+
       <div class="button-container">
         <button class="login-button" mat-raised-button color="primary">
-          Login
+          Sign Up
         </button>
         <p>OR</p>
-        <button mat-button>Create Account</button>
+        <button mat-button routerLink="/login">Login</button>
       </div>
     </form>
   </div>
