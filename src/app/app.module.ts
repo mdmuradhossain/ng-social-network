@@ -9,11 +9,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 
 @NgModule({
-  declarations: [AppComponent, TopBarComponent, LoginComponent, CreateAccountComponent],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    LoginComponent,
+    CreateAccountComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,6 +27,7 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
     MatButtonModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

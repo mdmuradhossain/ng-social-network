@@ -34,7 +34,7 @@ mat-form-field {
 
 .button-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   align-items: center;
 }
