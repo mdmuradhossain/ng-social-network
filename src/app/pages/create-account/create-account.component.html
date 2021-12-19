@@ -16,7 +16,13 @@
       </mat-form-field>
 
       <div class="button-container">
-        <button class="login-button" mat-raised-button color="primary">
+        <button
+          class="login-button"
+          mat-raised-button
+          color="primary"
+          (click)="createUser()"
+          [disabled]="createAccountForm.invalid"
+        >
           Sign Up
         </button>
         <p>OR</p>

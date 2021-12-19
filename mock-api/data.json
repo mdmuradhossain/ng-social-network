@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "email": "murad@gmail.com",
+      "username": "murad",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 2
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 3
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 4
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 5
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 6
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 7
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 8
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 9
+    },
+    {
+      "email": "s",
+      "username": "s",
+      "password": "ss",
+      "id": 10
+    }
+  ],
+  "posts": []
+}
