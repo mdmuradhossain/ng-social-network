@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TopBarComponent,
     LoginComponent,
     CreateAccountComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

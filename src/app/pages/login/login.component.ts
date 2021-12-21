@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private titleService: Title,
     private userService: UserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.titleService.setTitle('Login');
   }
@@ -35,7 +37,8 @@ export class LoginComponent implements OnInit {
         } else {
           if (res[0].password == this.loginForm.value.password) {
             console.log('User exists and password is correct');
-            this.snackBar.open('User exists and password is correct', 'ok');
+            this.snackBar.open('Login successfull', 'ok');
+            this.router.navigate(['/posts']);
           } else {
             console.log('User exists but password is incorrect');
             this.snackBar.open('User exists but password is incorrect', 'ok');
