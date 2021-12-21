@@ -5,31 +5,36 @@
       <mat-form-field appearance="outline">
         <mat-label>Enter your username</mat-label>
         <input matInput formControlName="email" />
-        <!-- <mat-error *ngIf="loginForm.controls.email.invalid">
+        <mat-error *ngIf="loginForm.controls['email'].invalid">
           {{
-            loginForm.controls.email.hasError("required")
-              ? "You must enter a value"
+            loginForm.controls["email"].hasError("required")
+              ? "You must enter a valid email"
               : "invalid email"
-          }})}}
-        </mat-error> -->
+          }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input matInput type="password" formControlName="password" />
-        <!-- <mat-error *ngIf="loginForm.controls.password.invalid">
+        <mat-error *ngIf="loginForm.controls['password'].invalid">
           {{
-            loginForm.controls.password.hasError("required")
+            loginForm.controls["password"].hasError("required")
               ? "Password is required"
               : "password should be at least 6 characters"
-          }})}}
-        </mat-error> -->
+          }}
+        </mat-error>
       </mat-form-field>
       <div class="button-container">
-        <button class="login-button" mat-raised-button color="primary">
+        <button
+          class="login-button"
+          mat-raised-button
+          color="primary"
+          (click)="login()"
+        >
           Login
         </button>
         <p>OR</p>
-        {{ loginForm.value | json }}
+        <!-- {{ loginForm.value | json }} -->
         <button mat-button routerLink="/signup">Create Account</button>
       </div>
     </form>
