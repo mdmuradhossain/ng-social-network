@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
         } else {
           if (res[0].password == this.loginForm.value.password) {
             console.log('User exists and password is correct');
-            this.snackBar.open('Login successfull', 'ok');
+            this.snackBar.open('Login successfull', 'ok', { duration: 2000 });
+            this.userService.user = res[0];
             this.router.navigate(['/posts']);
           } else {
             console.log('User exists but password is incorrect');

@@ -4,7 +4,12 @@
     <form [formGroup]="createAccountForm">
       <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
-        <input matInput type="email" formControlName="email" />
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="Enter a valid Email"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Enter your username</mat-label>
@@ -26,7 +31,7 @@
           Sign Up
         </button>
         <p>OR</p>
-        {{ createAccountForm.value | json }}
+        <!-- {{ createAccountForm.value | json }} -->
         <button mat-button routerLink="/login">Login</button>
       </div>
     </form>
