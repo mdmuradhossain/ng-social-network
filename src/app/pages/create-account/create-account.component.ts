@@ -26,6 +26,8 @@ export class CreateAccountComponent implements OnInit {
       .createUser(this.createAccountForm.value)
       .then((res) => {
         console.log(res);
+        this.userService.user = res;
+        localStorage.setItem('user', JSON.stringify(res));
       })
       .catch((err) => {
         console.log(err);
