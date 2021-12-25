@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+
 import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
@@ -41,6 +43,7 @@ import { PostsComponent } from './pages/posts/posts.component';
     MatSnackBarModule,
     MatIconModule,
     MatMenuModule,
+    MatCardModule,
   ],
   providers: [
     {
