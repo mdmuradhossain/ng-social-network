@@ -20,6 +20,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+
 import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
@@ -44,6 +49,9 @@ import { PostsComponent } from './pages/posts/posts.component';
     MatIconModule,
     MatMenuModule,
     MatCardModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
   ],
   providers: [
     {
