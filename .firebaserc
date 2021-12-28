@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "social-network-e629a": {
+      "hosting": {
+        "social-network": [
+          "social-network-e629a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "social-network-e629a"
+  }
+}

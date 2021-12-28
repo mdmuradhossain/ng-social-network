@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
+import { url } from 'inspector';
+import { finalize } from 'rxjs/operators';
 import { UserService } from 'src/app/core/user.service';
 
 @Component({
@@ -8,7 +12,11 @@ import { UserService } from 'src/app/core/user.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private storage: AngularFireStorage
+  ) {}
 
   ngOnInit(): void {
     if (this.userService.user == undefined || this.userService.user == null) {
@@ -33,4 +41,38 @@ export class PostsComponent implements OnInit {
       },
     ],
   };
+
+  selectedFile: any;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadImage() {
+    return new Promise((resolve, reject) => {
+      let n = Date.now();
+      const file = this.selectedFile;
+      const filePath = `images/${n}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      task
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            let imageUrl = fileRef.getDownloadURL();
+            imageUrl.subscribe((url: any) => {
+              if (url) {
+                console.log(url);
+                resolve(url);
+              }
+            });
+          })
+        )
+        .subscribe((url: any) => {
+          if (url) {
+            console.log(url);
+          }
+        });
+    });
+  }
 }
