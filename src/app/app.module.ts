@@ -20,9 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 
-// import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { environment } from '../environments/environment';
@@ -30,7 +30,8 @@ import { environment } from '../environments/environment';
 import { PostsComponent } from './pages/posts/posts.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-
+// import { AngularFireStorageModule } from '@angular/fire/storage';
+// import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,12 +54,10 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     MatIconModule,
     MatMenuModule,
     MatCardModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
+
     AngularFireAnalyticsModule,
     MaterialFileInputModule,
     AngularFireStorageModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(() => getFirestore()),
   ],
   providers: [
     {

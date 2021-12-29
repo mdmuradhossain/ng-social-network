@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
-import { AngularFireStorage } from '@angular/fire/storage';
+// import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { url } from 'inspector';
 import { finalize } from 'rxjs/operators';
