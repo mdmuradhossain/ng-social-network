@@ -76,4 +76,14 @@ export class PostsComponent implements OnInit {
         });
     });
   }
+
+  post() {
+    if (this.selectedFile != undefined || this.selectedFile != null) {
+      this.uploadImage()
+        .then((imageUrl) => {})
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
 }
