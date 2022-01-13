@@ -44,6 +44,7 @@ export class PostsComponent implements OnInit {
   };
 
   selectedFile: any;
+  text = '';
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
