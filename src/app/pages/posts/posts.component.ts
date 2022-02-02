@@ -3,8 +3,8 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 // import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
-import { url } from 'inspector';
 import { finalize } from 'rxjs/operators';
+import { PostService } from 'src/app/core/post.service';
 import { UserService } from 'src/app/core/user.service';
 
 @Component({
@@ -13,10 +13,15 @@ import { UserService } from 'src/app/core/user.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
+  selectedFile: any;
+  text = '';
+  posts: any = [];
+
   constructor(
     private userService: UserService,
     private router: Router,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private postService: PostService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +33,14 @@ export class PostsComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     }
+    this.postService
+      .getPosts()
+      .then((res) => {
+        this.posts = res;
+      })
+      .then((err) => {
+        console.log(err);
+      });
   }
 
   postSchema = {
@@ -42,9 +55,6 @@ export class PostsComponent implements OnInit {
       },
     ],
   };
-
-  selectedFile: any;
-  text = '';
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -81,7 +91,25 @@ export class PostsComponent implements OnInit {
   post() {
     if (this.selectedFile != undefined || this.selectedFile != null) {
       this.uploadImage()
-        .then((imageUrl) => {})
+        .then((imageUrl) => {
+          let post = {
+            username: this.userService.user.username,
+            text: this.text,
+            imageUrl: imageUrl,
+            likes: [],
+            comments: [],
+          };
+          this.posts.push(post);
+          this.postService
+            .saveNewPost(post)
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          console.log(imageUrl);
+        })
         .catch((err) => {
           console.log(err);
         });

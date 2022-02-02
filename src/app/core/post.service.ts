@@ -19,4 +19,17 @@ export class PostService {
       );
     });
   }
+
+  getPosts() {
+    return new Promise((resolve, reject) => {
+      this.http.get('http://localhost:3000/posts').subscribe(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }
