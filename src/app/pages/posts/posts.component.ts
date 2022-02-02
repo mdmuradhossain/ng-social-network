@@ -115,4 +115,26 @@ export class PostsComponent implements OnInit {
         });
     }
   }
+
+  like(postId: any) {
+    for (let i = 0; i < this.posts.length; i++) {
+      if (this.posts[i].id == postId) {
+        if (this.posts[i].likes.indexOf(this.userService.user.id) >= 0) {
+          this.posts[i].likes.splice(
+            this.posts[i].likes.indexOf(this.userService.user.id)
+          );
+        } else {
+          this.posts[i].likes.push(this.userService.user.id);
+        }
+        this.postService
+          .updateLikes(this.posts[i])
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    }
+  }
 }
