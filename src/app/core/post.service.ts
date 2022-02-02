@@ -45,4 +45,17 @@ export class PostService {
       );
     });
   }
+
+  updateComments(post: any) {
+    return new Promise((resolve, reject) => {
+      this.http.put('http://localhost:3000/posts/' + post.id, post).subscribe(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }

@@ -4,34 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
-import { LoginComponent } from './pages/login/login.component';
-import {
-  MatFormFieldModule,
-  MAT_FORM_FIELD_DEFAULT_OPTIONS,
-} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './pages/login/login.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PostsComponent } from './pages/posts/posts.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
-
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
-import { environment } from '../environments/environment';
-
-import { PostsComponent } from './pages/posts/posts.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-// import { AngularFireStorageModule } from '@angular/fire/storage';
-// import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,28 +35,22 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
     MatMenuModule,
     MatCardModule,
-
-    AngularFireAnalyticsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     MaterialFileInputModule,
     AngularFireStorageModule,
   ],
-  providers: [
-    {
-      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: { appearance: 'outline' },
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
